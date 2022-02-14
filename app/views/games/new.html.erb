@@ -1,0 +1,14 @@
+<h1>Welcome to the best longest word game!</h1>
+<div class="container">
+<% @letters.each do |letter| %>
+  <div class="letterbox"><%= letter %></div>
+<% end %>
+</div>
+
+<form action="score" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="text" name="answer" placeholder="Type your answer...">
+  <input hidden value="<%= @start_time %>" name="start_time">
+  <input hidden value="<%= @letters %>" name="letters">
+  <input type="submit">
+</form>
